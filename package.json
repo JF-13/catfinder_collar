@@ -1,0 +1,27 @@
+{
+  "name": "catfinder",
+  "version": "1.0.0",
+  "description": "smart pet collar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JF-13/catfinder.git"
+  },
+  "keywords": [
+    "cat",
+    "find",
+    "collar",
+    "gps",
+    "sensor",
+    "iot"
+  ],
+  "author": "moi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JF-13/catfinder/issues"
+  },
+  "homepage": "https://github.com/JF-13/catfinder#readme"
+}
