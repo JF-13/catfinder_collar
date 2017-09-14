@@ -1,6 +1,7 @@
 
-#include <TinyGPS++/TinyGPS++.h>
-#include <SoftwareSerial.h>
+#include "TinyGPS++.h"
+// streaming access key 9A4WP0JfR49OFbnGchoWg4CiZ7QaVt30
+//#include <SoftwareSerial.h>
 /*
    This sample code demonstrates the normal use of a TinyGPS++ (TinyGPSPlus) object.
    It requires the use of SoftwareSerial, and assumes that you have a
@@ -10,21 +11,22 @@
 //3d party sim creds
 STARTUP(cellular_credentials_set("fp.com.attz", "", "", NULL));
 
-static const int RXPin = 4, TXPin = 3;
-static const uint32_t GPSBaud = 4800;
+//static const int RXPin = 4, TXPin = 3;
+static const uint32_t GPSBaud = 9600;
 
 // The TinyGPS++ object
 TinyGPSPlus gps;
 
 // The serial connection to the GPS device
-SoftwareSerial ss(RXPin, TXPin);
+//SoftwareSerial ss(RXPin, TXPin);
 
 void setup()
 {
+  Particle.keepAlive(300000);
   Serial.begin(115200);
-  ss.begin(GPSBaud);
+  Serial1.begin(GPSBaud);
 
-  Serial.println(F("FullExample.ino"));
+  Serial.println(F("gpsStart.ino"));
   Serial.println(F("An extensive example of many interesting TinyGPS++ features"));
   Serial.print(F("Testing TinyGPS++ library v. ")); Serial.println(TinyGPSPlus::libraryVersion());
   Serial.println(F("by Mikal Hart"));
@@ -32,6 +34,7 @@ void setup()
   Serial.println(F("Sats HDOP Latitude   Longitude   Fix  Date       Time     Date Alt    Course Speed Card  Distance Course Card  Chars Sentences Checksum"));
   Serial.println(F("          (deg)      (deg)       Age                      Age  (m)    --- from GPS ----  ---- to London  ----  RX    RX        Fail"));
   Serial.println(F("---------------------------------------------------------------------------------------------------------------------------------------"));
+
 }
 
 void loop()
@@ -88,8 +91,8 @@ static void smartDelay(unsigned long ms)
   unsigned long start = millis();
   do
   {
-    while (ss.available())
-      gps.encode(ss.read());
+    while (Serial1.available())
+      gps.encode(Serial1.read());
   } while (millis() - start < ms);
 }
 
