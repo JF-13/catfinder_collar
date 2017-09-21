@@ -1,0 +1,16 @@
+{
+    "event": "test1data",
+    "url": "https://ouchat-c0ab5.firebaseio.com/test1data/data.json",
+    "requestType": "POST",
+    "query": {
+    	"auth":"QoAnkvpCQN0WnQJQ3TUocWU4UVzWCJqjthUTO9AO"
+    },
+    "json": {
+		"a": "{{a}}",
+		"b": "{{b}}",
+		"c": "{{c}}",
+		"ts": "{{PARTICLE_PUBLISHED_AT}}"
+    },
+    "mydevices": true,
+    "noDefaults": true
+}

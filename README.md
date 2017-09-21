@@ -1,2 +1,3 @@
-# catfinder
-pet smart collar
+# Catfinder
+
+## Compact GSM-GPS Arduino Collar'

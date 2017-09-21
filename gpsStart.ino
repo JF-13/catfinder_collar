@@ -22,7 +22,7 @@ TinyGPSPlus gps;
 
 void setup()
 {
-  Particle.keepAlive(300000);
+  Particle.keepAlive(60000);
   Serial.begin(115200);
   Serial1.begin(GPSBaud);
 
